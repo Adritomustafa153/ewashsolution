@@ -1,28 +1,35 @@
 <?php
 session_start();
 include("db_connect.php");
-$uid =  $_SESSION["uid"];
+$se =  $_SESSION["uid"];
 
 $sql = "SELECT * FROM order_data ";
 if($result = $conn->query($sql)){
 
     ?>
+<style>
+    table, th, td {
+  border: 1px solid rgb(5,44,56);
+}
+</style>
 
-
-                        <table class="table" style="background-image: url(b.jpg);background-position: center;background-repeat: no-repeat;background-size: cover;display: flex;flex-direction: column;
-  align-items: center;">
+                        <table>
                             <thead class="thead-dark">
 <tr style="font-weight: bold;">
     <th>Order id</th>
     <th>Customer id</th>
+    <td>Shop id </td>
     <th>Pickup person id</th>
     <th> Dropup person id</th>
     <th>Area</th>
-    <th>Location</th>
+    <td>Loaction</td>
+                <td>Phone</td>
     <th>Order progress</th>
     <th>Bill</th>
     <th>Delivery Type</th>
-
+    <th>Order date</th>
+    <th>Delivery date</th>
+<th>Shopper Name</th>
 
     <th style="padding-left: 100px"></th>
     <!-- <th style="padding-left: 100px"></th> -->
@@ -32,22 +39,34 @@ if($result = $conn->query($sql)){
                             </thead>
                             <?php
     while($row = $result->fetch_assoc()){
+
+        // if($se==$row['s_id']){
+
+
         ?>
           
-        <tbody style="border:2px solid coral;">
+        <tbody >
         <!-- <tr style="border:1px solid red"> -->
         
 
-        <td style=" padding-left: 100px; font-weight: bold;color:rgb(50, 168, 149)"><?php echo $row['o_id']?> </td>
-        <td style=" padding-left: 120px;font-weight: bold;color:rgb(50, 168, 149)"><?php echo $row['c_id']?> </td>
-        <td style=" padding-left: 95px;font-weight: bold;color:rgb(50, 168, 149)"><?php echo $row['s_id']?> </td>
-        <td style=" padding-left: 100px;font-weight: bold;color:rgb(50, 168, 149)"><?php echo $row['pickman_id']?> </td>
-        <td style=" padding-left: 100px;font-weight: bold;color:rgb(50, 168, 149)"><?php echo $row['pickman_id']?> </td>
-        <td style=" padding-left: 100px;font-weight: bold;color:rgb(50, 168, 149)"><?php echo $row['pickman_id']?> </td>
-        <td style=" padding-left: 100px;font-weight: bold;color:rgb(50, 168, 149)"><?php echo $row['pickman_id']?> </td>
-        <td style=" padding-left: 100px;font-weight: bold;color:rgb(50, 168, 149)"><?php echo $row['pickman_id']?> </td>
-        <td style=" padding-left: 100px;font-weight: bold;color:rgb(50, 168, 149)"><?php echo $row['pickman_id']?> </td>
-        <td style=" padding-left: 100px;font-weight: bold;color:rgb(50, 168, 149)"><?php echo $row['pickman_id']?> </td>
+        <td><?php echo $row['o_id']?> </td>
+        <td><?php echo $row['c_id']?> </td>
+        <td><?php echo $row['s_id']?> </td>
+        <td><?php echo $row['pickman_id']?> </td>
+        <td><?php echo $row['dropup_id']?> </td>
+        <td><?php echo $row['area']?> </td>
+        <td><?php echo $row['d_location']?> </td>
+         
+        <td><?php echo $row['c_contact']?> </td>
+        <td><?php echo $row['o_progress']?> </td>
+        <td><?php echo $row['bill']?> </td>
+        <td><?php echo $row['d_type']?> </td>
+        <td><?php echo $row['p_type']?> </td>
+
+        <td><?php echo $row['ord_date']?> </td>
+        <td><?php echo $row['del_date']?> </td>
+       
+        <td><?php echo $row['s_name']?> </td>
 
        
 
@@ -55,6 +74,7 @@ if($result = $conn->query($sql)){
     </tbody>
 
 <?php
+        // }
     }
 }
 ?>
