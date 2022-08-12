@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("db_connect.php");
-$se =  $_SESSION["uid"];
 
 $sql = "SELECT * FROM order_data ";
 if($result = $conn->query($sql)){
@@ -40,7 +39,7 @@ if($result = $conn->query($sql)){
                             <?php
     while($row = $result->fetch_assoc()){
 
-        // if($se==$row['s_id']){
+        if($row['s_id']==$_SESSION["uid"]){
 
 
         ?>
@@ -74,7 +73,7 @@ if($result = $conn->query($sql)){
     </tbody>
 
 <?php
-        // }
+        }
     }
 }
 ?>
