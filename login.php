@@ -14,8 +14,9 @@ if (isset($_POST['login'])) {
 
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_array($result);
-            $_SESSION["uid"] = $row['u_id'];
-            header("location: shopper.php");
+            $_SESSION["uid"] = $row['s_id'];
+            
+            header("location: o_info.php");
             exit();
         } else {
             

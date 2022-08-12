@@ -90,8 +90,10 @@ button:hover {
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
     <label for="S_name"><b>Shop Name:</b></label>
     <input type="text" placeholder="Enter Shop" name="Shop" required>
+
     <label for="Contact"><b>Contact</b></label>
-    <input type="number" placeholder="Enter Contact" name="contact" required>
+    <input type="text" placeholder="Enter Contact" name="contact" required>
+    <br>
     <label for="location">Choose a Location:</label>
 
 <select name="Location" id="Location" required>
