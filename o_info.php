@@ -10,9 +10,15 @@ if($result = $conn->query($sql)){
 <style>
     table, th, td {
   border: 1px solid rgb(5,44,56);
-}
-</style>
+padding:20px;
 
+
+}
+tr:hover {background-color: coral;}
+
+</style>
+<h1 style="font-weight: bold;  color: blue;
+"> <center>Order Details</center></h1>
                         <table>
                             <thead class="thead-dark">
 <tr style="font-weight: bold;">
@@ -22,16 +28,16 @@ if($result = $conn->query($sql)){
     <th>Pickup person id</th>
     <th> Dropup person id</th>
     <th>Area</th>
-    <td>Loaction</td>
+    <td>Location</td>
                 <td>Phone</td>
     <th>Order progress</th>
     <th>Bill</th>
     <th>Delivery Type</th>
+    <th>Product Type</th>
     <th>Order date</th>
     <th>Delivery date</th>
-<th>Shopper Name</th>
 
-    <th style="padding-left: 100px"></th>
+
     <!-- <th style="padding-left: 100px"></th> -->
 
 </tr>
@@ -66,7 +72,6 @@ if($result = $conn->query($sql)){
         <td><?php echo $row['ord_date']?> </td>
         <td><?php echo $row['del_date']?> </td>
        
-        <td><?php echo $row['s_name']?> </td>
 
        
 

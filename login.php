@@ -74,11 +74,11 @@ if (isset($_POST['login'])) {
 
     </div>
 
-    <div class='suser'>
+    <!-- <div class='suser'>
     <label for="loading">Enter shopper id to load orders</label><br>
     <input type="text" id="email" name="name" placeholder="na">
     <button class='btn'>Load Orders</button>
-    </div>
+    </div> -->
 
 </body>
 
