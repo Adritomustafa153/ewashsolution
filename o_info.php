@@ -50,7 +50,7 @@ tr:hover {background-color: coral;}
     while($row = $result->fetch_assoc()){
 
         if($row['s_id']==$se){
-        $idd= $row['o_id'];
+        $id=$row['o_id'];
 
         ?>
           
@@ -74,7 +74,9 @@ tr:hover {background-color: coral;}
 
         <td><?php echo $row['ord_date']?> </td>
         <td><?php echo $row['del_date']?> </td>
-		 <td> <a href = 'deleteOrder.php?id=<?php $idd ?>'> Delete </a> </td>;
+        <?php
+		echo "<td> <a href = 'deleteOrder.php?id=$id'> Delete </a> </td>";
+        ?>
         
        
 

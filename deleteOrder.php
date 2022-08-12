@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 	$id = $_GET["id"];
 
 
@@ -14,11 +14,6 @@ echo $id;
 		or die("Can not execute query");
 
 
-
-	echo "Record deleted<br>";
-
-
-
-	echo "<p><a href=action_page.php>READ all records</a>";
+        header("location: o_info.php");
 
 ?>
