@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <style>
@@ -73,7 +74,7 @@ button:hover {
 </style>
 <body>
 
-<form action="/action_page.php" style="border:1px solid #ccc">
+<form method="post" action="action_page.php" style="border:1px solid #ccc" >
   <div class="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
@@ -89,6 +90,8 @@ button:hover {
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
     <label for="S_name"><b>Shop Name:</b></label>
     <input type="text" placeholder="Enter Shop" name="Shop" required>
+    <label for="Contact"><b>Contact</b></label>
+    <input type="number" placeholder="Enter Contact" name="contact" required>
     <label for="location">Choose a Location:</label>
 
 <select name="Location" id="Location" required>

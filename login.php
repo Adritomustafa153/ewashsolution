@@ -68,7 +68,7 @@ if (isset($_POST['login'])) {
 
             <p class="forgot-password"><a href="#">Forgot Passwprd?</a> </p>
 
-            <p class="create-new"><a href="create.php">Create New Account</a></p>
+            <p class="create-new"><a href="signup.php">Create New Account</a></p>
         </div>
 
     </div>
