@@ -2,6 +2,8 @@
 session_start();
 include("db_connect.php");
 $se=$_SESSION["uid"];
+$se1=$_SESSION["area"];
+
 
 $sql = "SELECT * FROM order_data ";
 if($result = $conn->query($sql)){
@@ -50,6 +52,7 @@ tr:hover {background-color: coral;}
     while($row = $result->fetch_assoc()){
 
         if($row['s_id']==$se){
+            if($row['area']==$se1){
         $id=$row['o_id'];
 
         ?>
@@ -78,18 +81,18 @@ tr:hover {background-color: coral;}
 		echo "<td> <a href = 'deleteOrder.php?id=$id'> Delete </a> </td>";
         ?>
         
-       
-
-       
-
-        </tr>
-    </tbody>
+        
+        
+        
+    </tr>
+</tbody>
 
 <?php
         }
     }
 }
+}
 ?>
-
+<button style="margin-left: 50%;margin-bottom: 2px;"><a href="logout.php">Log Out</a></button>
 
 

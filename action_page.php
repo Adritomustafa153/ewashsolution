@@ -1,10 +1,7 @@
 <?php
-session_start();
 include("db_connect.php");
 
-// if (isset($_POST['signUp'])) {
 
-    // username and password sent from form  
     $uemail = $_POST['email'];
     $password = $_POST['psw'];
     $Shop = $_POST['Shop']; 
@@ -15,6 +12,8 @@ include("db_connect.php");
 
 
 
-mysqli_query($conn,"INSERT INTO shop VALUES ('','NULL','$Shop','$contact','$uemail','$Location','$Area','$password' )") 
+mysqli_query($conn,"INSERT INTO shop VALUES ('','$Shop','$contact','$uemail','$Location','$Area','$password' )") 
+or die("Can not execute query");
+header("location: login.php");
 ?>
 

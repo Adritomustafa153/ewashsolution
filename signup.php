@@ -118,7 +118,7 @@ button:hover {
 
     <div class="clearfix">
       <!-- <button  type="button" class="cancelbtn">Cancel</button> -->
-      <button type="submit" name="signUp" class="signupbtn">Sign Up</button>
+      <button type="submit"  class="signupbtn">Sign Up</button>
     </div>
   </div>
 </form>

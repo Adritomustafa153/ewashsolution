@@ -9,12 +9,14 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
 
     if (!empty($uemail) && !empty($password)) {
-        $sql = "SELECT s_id FROM shop WHERE s_name = '$uemail' AND pass = $password;";
+        $sql = "SELECT * FROM shop WHERE s_name = '$uemail' AND pass = $password;";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_array($result);
             $_SESSION["uid"] = $row['s_id'];
+            $_SESSION["area"] = $row['s_area'];
+
             
             header("location: o_info.php");
             exit();
