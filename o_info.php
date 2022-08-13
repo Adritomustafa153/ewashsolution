@@ -76,8 +76,14 @@ tr:hover {background-color: coral;}
         <td><?php echo $row['p_type']?> </td>
 
         <td><?php echo $row['ord_date']?> </td>
-        <td><?php echo $row['del_date']?> </td>
+        <!-- <td><a href="order"></a></td> -->
+        <!-- <td><input type="date" name="date"></td>
+        <button>date</button> -->
         <?php
+
+        // $_SESSION["area"] =date;
+        
+        
 		echo "<td> <a href = 'deleteOrder.php?id=$id'> Delete </a> </td>";
         ?>
         
