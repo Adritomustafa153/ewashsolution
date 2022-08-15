@@ -136,7 +136,7 @@ $time = date(' h:i:s');
           <a class="nav-link" href="addshopper.php">Add Shopper</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Add Product</a>
+          <a class="nav-link" href="price.html">Add Product</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Tracking</a>

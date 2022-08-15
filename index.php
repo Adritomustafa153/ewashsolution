@@ -31,7 +31,7 @@ if (isset($_POST['login'])) {
 <html>
 
 <head>
-    <title>Dhuye Daw | Login</title>
+    <title>Ewash Solution | Login</title>
     <link rel="stylesheet" type="text/css" href="lp.css">
 </head>
 
