@@ -76,6 +76,7 @@ tr:hover {background-color: coral;}
         <td><?php echo $row['p_type']?> </td>
 
         <td><?php echo $row['ord_date']?> </td>
+        <td></td>
         <!-- <td><a href="order"></a></td> -->
         <!-- <td><input type="date" name="date"></td>
         <button>date</button> -->
