@@ -19,8 +19,12 @@ $time = date(' h:i:s');
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Admin | Home</title>
      <style>
+      h1{
+padding-left: 10%;
+color:#87CEEB;
+}
          h3{
-        color : white;
+        color : #87CEEB;
         font: 1em sans-serif,Arial;
         margin-right: 30px ;
     }
@@ -99,9 +103,9 @@ $time = date(' h:i:s');
   <h1>Admin</h1>
   <a href="home.php">Home</a>
   <a href="shoppers.php">Shoppers</a>
-  <a href="#">Delivery</a>
+  <a href="alldelivery.php">All Delivery</a>
   <a href="customers.php">Customer</a>
-  <a href="#">Todays Delivery</a>
+  <a href="todays_order.php">Todays Delivery</a>
   <a href="#">History</a>
 </div>
 
@@ -139,10 +143,10 @@ $time = date(' h:i:s');
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Add Shopper</a>
+          <a class="nav-link" href="insert_shop.php">Add Shopper</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Add Product</a>
+          <a class="nav-link" href="price.html">Add Product</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Tracking</a>

@@ -1,28 +1,3 @@
-<?php
-require_once('db_connect.php');
-if(isset($_POST['u_Add'])){
-
-  // $id = $_POST['id'];
-  $name = $_POST['Name'];
-  $pass = $_POST['pass'];
-  $location = $_POST['location'];
-  $servicearea = $_POST['s_area'];
-  $email = $_POST['s_email'];
-  $contact = $_POST['s_contact'];
-
-  $sql1 = "INSERT INTO shop (s_id, s_name, pass, s_loaction,s_contact,s_email,s_area) VALUES (NULL, '$name', '$pass', '$location','$contact','$email','$servicearea');";
-      $result = $conn->query($sql1);
-
-      if ($result === TRUE) {
-         echo '<script>alert("Successfull Added new user")</script>';
-      }
-      else{
-      echo "Error: " . $sql1 . "<br>" . $conn->error;
-      }
-
-$conn->close();
-    }
-?>
 
 <?php
 date_default_timezone_set('Asia/dhaka');
@@ -43,7 +18,7 @@ padding-left: 10%;
 color:#87CEEB;
 }
          h3{
-        color : #87CEEB;
+        color : white;
         font: 1em sans-serif,Arial;
         margin-right: 30px ;
     }
@@ -59,7 +34,6 @@ color:#87CEEB;
         transition-duration: 0.4s;
         background-color: #005EB8;
         color: white;
-        margin-left:20px;
         border: 2px solid #005EB8; 
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     }
@@ -69,39 +43,24 @@ color:#87CEEB;
   
   
 }
-.update{
-    margin-left:45%;
-  }
-    .update .upd{
-        
-        background-color:#1CDBBC; /* Green */
-  border: 1px solid #1CDBBC;
-  border-radius: 12px;
-  color: white;
-  margin-top: 10px;
-  
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-    }
-    .emailS, .passwordS{
-	margin: 10px 0px;
-	display: block;
+label{
+	color: #005EB8;
+	margin: 20px 0px;
+	font-size: 24px;
+    
 }
-.login-section form input{
+input{
 	height: 40px;
 	border-radius: 8px;
 	width: 300px;
-	outline: none;
-	border: none;
+	/* outline: none;
+	border: none; */
 	padding: 0px 10px;
 }
+  
     
     </style>
     <link rel="stylesheet" href="sidenav.css">
-    <!-- <link rel="stylesheet" type="text/css" href="up.css"> -->
  </head>
  <body>
 <!-- Font Awesome -->
@@ -153,7 +112,7 @@ color:#87CEEB;
   <a href="shoppers.php">Shoppers</a>
   <a href="alldelivery.php">All Delivery</a>
   <a href="customers.php">Customer</a>
-  <a href="#">Todays Delivery</a>
+  <a href="todays_order.php">Todays Delivery</a>
   <a href="#">History</a>
 </div>
 
@@ -206,8 +165,41 @@ color:#87CEEB;
   
 
    
+    <div class="d-flex align-items-center">
+    
+      <a class="text-reset me-3" href="#">
+        <i class="fas fa-shopping-cart"></i>
+      </a> 
 
-      <!-Avatar -->
+       Notifications -->
+      <!-- <div class="dropdown">
+        <a
+          class="text-reset me-3 dropdown-toggle hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="fas fa-bell"></i>
+          <span class="badge rounded-pill badge-notification bg-danger">1</span>
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
+          <li>
+            <a class="dropdown-item" href="#">Some news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Another news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div> -->
+      <!-- Avatar -->
       <div class="dropdown">
         <a
           class="dropdown-toggle d-flex align-items-center hidden-arrow"
@@ -234,7 +226,7 @@ color:#87CEEB;
           </li>
           
           <li>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" href="logout.php">Logout</a>
           </li>
         </ul>
       </div>
@@ -247,49 +239,77 @@ color:#87CEEB;
 <div class="weladm">
 <h2>Welcome <span class="badge bg-primary"><?php echo"Admin"?></span></h2>
 <p> Today's Date : <?php echo "$date"?> Time : <?php echo "$time"?></p>
-<div>
-<h5>Please fillup the input field of shop entry form</h3>
-<form method="POST" action="insert_shop.php">
+
+<!-- <button class="btns" id="getshopper">Load Shoppers</button> -->
+<div class="container">
+<h1>Delivery Man list</h1>
+<table class="table table-border">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Contact</th>
+      <!-- <th>Running Order</th> -->
+      
+      
+     
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    $conn = mysqli_connect('localhost','root','','dhuye_daw');
+    if($conn){
+      echo "Connection Successful.";
+    }
+    else{
+      echo"Connection error";
+    }
+    $sql = "SELECT d_id,dm_name,dm_contact FROM delivery_man;";
+    $result = $conn->query($sql);
+
+   
+    if($result){
+      while($row = $result->fetch_assoc()){
+        echo "<tr><td>" .$row['d_id'] . "</td><td>".$row['dm_name'] . "</td><td>" .$row['dm_contact'] .  "</td></tr>";
+      }
+    }
+
+
+
+    if(isset($_POST['assign'])){
+
+        $dmid = $_POST['dmid'];
+        $orderid = $_POST['oid'];
+    
+   
+   
+     
+        $sql1 = "UPDATE order_data SET pickman_id='$dmid',dropup_id='$dmid' WHERE o_id=$orderid;";
+            $result = $conn->query($sql1);
+   
+            if ($result === TRUE) {
+               echo '<script>alert("Successfully assigned ")</script>';
               
-                    <span class="name">
-                        <label for="name">Name</label>
-                        <input type="text" id="Name" name="Name" placeholder="Name"><br>
-                    </span>
-                    <span class="phone">
-						<label for="phone">Password</label>
-						<input type="password"id="phone" name="pass" placeholder="password"><br>
-					</span>
-                    
-                    <span class="phone">
-						<label for="phone">Location</label>
-						<input type="text"id="phone" name="location" placeholder="Location"><br>
-					</span>
-                    <span class="phone">
-						<label for="phone">Contact</label>
-						<input type="text"id="phone" name="s_contact" placeholder="Contact"><br>
-					</span>
-                    <span class="phone">
-						<label for="phone">Email</label>
-						<input type="email"id="phone" name="s_email" placeholder="Email"><br>
-					</span>
-                    <span class="phone">
-						<label for="phone">Service Area</label>
-						<input type="text"id="phone" name="s_area" placeholder="Service Area"><br>
-					</span>
-                    
-                    <div class="update">
-                    <!-- <button class="upd" name="u_update">Update</button> -->
-                    <button class="upd" name="u_Add">Add Shop</button>
-                    <!-- <button class="upd" name="u_delete">Delete</button> -->
-                   
-
-                    </div>
-					
-					
-				</form>
-
-
+            }
+            else{
+            echo "Error: " . $sql1 . "<br>" . $conn->error;
+            }
+           }
+      ?>
+   
+  </tbody>
+</table>
+<form action="assign.php" method="post">
+<h1>Assign Delivery</h1>
+<label for=""> Delivery Man ID</label>
+<input type="text" name="dmid" placeholder="Delivery man ID">
+<label for="">Order id</label>
+<input type="text" name="oid" placeholder="Order ID">
+<button type="submit" class="btns" name="assign">Assign</button>
+        </form>
 </div>
+
+
 </div>
 
 

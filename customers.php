@@ -17,6 +17,10 @@ $time = date(' h:i:s');
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Admin | Home</title>
      <style>
+      h1{
+padding-left: 10%;
+color:#87CEEB;
+}
          h3{
         color : white;
         font: 1em sans-serif,Arial;
@@ -43,6 +47,7 @@ $time = date(' h:i:s');
   
   
 }
+tr:hover {background-color: #D6EEEE;}
   
     
     </style>
@@ -96,9 +101,9 @@ $time = date(' h:i:s');
   <h1>Admin</h1>
   <a href="home.php">Home</a>
   <a href="shoppers.php">Shoppers</a>
-  <a href="#">Delivery</a>
+  <a href="alldelivery.php">All Delivery</a>
   <a href="customers.php">Customer</a>
-  <a href="#">Todays Delivery</a>
+  <a href="todays_order.php">Todays Delivery</a>
   <a href="#">History</a>
 </div>
 
