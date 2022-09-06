@@ -9,22 +9,28 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
 
     if (!empty($uemail) && !empty($password)) {
-        $sql = "SELECT * FROM shop WHERE s_name = '$uemail' AND pass = $password;";
+        $sql = "SELECT * FROM shop WHERE s_email = '$uemail' AND pass = $password;";
         $result = mysqli_query($conn, $sql);
-
         if (mysqli_num_rows($result) == 1) {
+
             $row = mysqli_fetch_array($result);
+
             $_SESSION["uid"] = $row['s_id'];
             $_SESSION["area"] = $row['s_area'];
 
             
             header("location: o_info.php");
             exit();
-        } else {
+        }
+         else if((mysqli_num_rows($result) != 1)) {
             
             echo '<script>alert(" Entar a valid username & password")</script>';
+          
+           
+            
         }
-    } else {
+    } 
+    else {
         echo "<h3>Please enter username or password<h3>";
     }
 }
@@ -49,6 +55,7 @@ if (isset($_POST['login'])) {
   text-decoration: none;
   display: inline-bl
         }
+        
     </style>
 </head>
 
@@ -69,7 +76,7 @@ if (isset($_POST['login'])) {
                 <button class="btn" name="login">Log In</button>
             </form>
 
-            <p class="forgot-password"><a href="#">Forgot Passwprd?</a> </p>
+            <!-- <p class="forgot-password"><a href="#">Forgot Passwprd?</a> </p> -->
 
             <p class="create-new"><a href="signup.php">Create New Account</a></p>
         </div>

@@ -16,25 +16,59 @@ padding:20px;
 
 
 }
+ th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+/* tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+tr:hover {background-color: #D6EEEE;} */
+
 table:hover:{
     background:#89A77A;
 }
-tr:hover {background-color: coral;}
+tr:nth-child(even){background-color: #f2f2f2;}
+
+ tr:hover {background-color: #ddd;float: auto;}
+
+
+
+
+/* tr:hover {background-color: coral;} */
+.first{
+    margin-left: 80%;
+    color:black;
+}
 
 </style>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <h1 style="font-weight: bold;  color: blue;
 "> <center>Order Details</center></h1>
+<div class="first">
+    
+    <form class="get" action="search.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</div>
                         <table>
                             <thead class="thead-dark">
 <tr style="font-weight: bold;">
     <th>Order id</th>
-    <th>Customer id</th>
-    <td>Shop id </td>
+    <!-- <th>Customer id</th> -->
+    <!-- <td>Shop id </td> -->
     <th>Pickup person id</th>
     <th> Dropup person id</th>
     <th>Area</th>
-    <td>Location</td>
-                <td>Phone</td>
+    <th>Location</th>
+                <th>Phone</th>
     <th>Order progress</th>
     <th>Bill</th>
     <th>Delivery Type</th>
@@ -51,10 +85,11 @@ tr:hover {background-color: coral;}
                             <?php
     while($row = $result->fetch_assoc()){
 
-        if($row['s_id']==$se){
-            if($row['area']==$se1){
-        $id=$row['o_id'];
 
+        $progress=$row['o_progress'];
+if(($row['area']==$se1)){
+                if($progress="Done"){
+        $id=$row['o_id'];
         ?>
           
         <tbody >
@@ -62,8 +97,8 @@ tr:hover {background-color: coral;}
         
 
         <td><?php echo $row['o_id']?> </td>
-        <td><?php echo $row['c_id']?> </td>
-        <td><?php echo $row['s_id']?> </td>
+       
+        
         <td><?php echo $row['pickman_id']?> </td>
         <td><?php echo $row['dropup_id']?> </td>
         <td><?php echo $row['area']?> </td>
@@ -75,30 +110,31 @@ tr:hover {background-color: coral;}
         <td><?php echo $row['d_type']?> </td>
         <td><?php echo $row['p_type']?> </td>
 
-        <td><?php echo $row['ord_date']?> </td>
-        <td></td>
+        <td><?php echo $row['Orderdate']?> </td>
+        <td><?php echo $row['d_date']?></td>
         <!-- <td><a href="order"></a></td> -->
         <!-- <td><input type="date" name="date"></td>
         <button>date</button> -->
         <?php
-
+        $d_date=$row['d_date'];
+        // $d_date = date('Y-m-d', strtotime($row["d_date"]));
         // $_SESSION["area"] =date;
         
-        
-		echo "<td> <a href = 'deleteOrder.php?id=$id'> Delete </a> </td>";
+		echo "<td> <a href = 'deleteOrder.php?id=$id&f0=$progress&d_date=$d_date'> Update </a> </td>";
         ?>
         
         
         
         
     </tr>
+
 </tbody>
 
 <?php
         }
     }
 }
-}
+}   
 ?>
 <button style="margin-left: 50%;margin-bottom: 2px;"><a href="logout.php">Log Out</a></button>
 

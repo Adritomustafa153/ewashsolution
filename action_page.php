@@ -16,4 +16,3 @@ mysqli_query($conn,"INSERT INTO shop VALUES ('','$Shop','$contact','$uemail','$L
 or die("Can not execute query");
 header("location: login.php");
 ?>
-

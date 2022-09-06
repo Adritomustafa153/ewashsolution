@@ -1,6 +1,6 @@
-<?php   
-session_start(); 
-session_destroy(); 
-header("location:/dhuyedaw/dhuyedaw/Shopper/login.php"); 
-exit();
+<?php 
+session_start();
+session_destroy();
+$_SESSION = array();
+header("location: login.php");
 ?>
