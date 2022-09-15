@@ -1,3 +1,29 @@
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <style>
+	.first{
+		margin-left:80%;
+	}
+   </style>
+
+
+</head>
+
+
+
+<div class="first" >
+    
+    <form class="get" action="">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</div>
+
+
+
+
 <?php
 $search=$_GET['search'];
 // $search = date('Y-m-d', strtotime($_GET["search"]));
@@ -41,15 +67,17 @@ tr:hover {background-color: #D6EEEE;}
 </style>
 </head>
 <tbody>
-	<h1>Search Data</h1>
+<h2 style="margin-left:20px;margin-buttom:20px;">Search <span class="badge bg-primary"><?php echo"Data"?></span></h2>
+<!-- <p> Today's Date : <?php echo "$date"?> Time : <?php echo "$time"?></p> -->
 <p id="content">please wait, loading data...</p>
 <h2 id="f0"></h2>
 <table id="f1" border="2px solid gray">
-    <tr> <td>id</td> <td>name</td> <td>Area</td><td>Contact</td><td>Bill</td></tr>
+
     </table>
 <script>
 // echo $search;
 
+document.getElementById("f1").innerHTML = "";  
 	// let n = prompt('please enter the id:');
 	let n='<?php echo $search?>'
 		fetch('http://localhost/Dhuyedaw/Dhuyedaw/Shopper/search2.php?search=' + n)
@@ -59,13 +87,18 @@ tr:hover {background-color: #D6EEEE;}
 			document.getElementById("content").innerHTML = "";
 			//document.getElementById("f0").innerHTML = myObj.status;
 			// document.getElementById("f2").innerHTML = "";  
+          
+            var table = document.getElementById('f1');
+            var trheader = document.createElement('tr');
+            trheader.innerHTML = "<tr> <td> Order_data </td><td> Customer_name </td><td> Area </td><td>Contact</td><td>Pickman_id</td><td>Bill</td><td>Order_Date</td><td>Delivery_date</td><td>Progress</td></tr>";
+            table.append(trheader);
+          
 
-           document.getElementById("f1").innerHTML = "";  
        for (let i = 0; i < myObj["content"].length; i++) {
            console.log(i);
             var table = document.getElementById('f1');
            var tr = document.createElement('tr');  
-           tr.innerHTML = "<tr> <td>" + myObj.content[i].o_id + "</td> <td>" +myObj.content[i].c_name + "</td> <td>" + myObj.content[i].area +"</td> <td>" + myObj.content[i].c_contact +"</td> <td>" + myObj.content[i].bill + "</td> </tr>";
+           tr.innerHTML = "<tr> <td>" + myObj.content[i].o_id + "</td> <td>" +myObj.content[i].c_name + "</td> <td>" + myObj.content[i].area +"</td> <td>" + myObj.content[i].c_contact +"</td> <td>" + myObj.content[i].pickman_id + "</td> </tr>"+"</td> <td>" + myObj.content[i].bill + "</td> </tr>"+"</td> <td>" + myObj.content[i].Orderdate +"</td> <td>" +myObj.content[i].d_date +"</td> <td>" +myObj.content[i].o_progress + "</td></tr>";
            table.append(tr);
        }
            
@@ -94,6 +127,7 @@ tr:hover {background-color: #D6EEEE;}
 // 	 		document.getElementById("f1").innerHTML = "";
 // 	 	}
 // 	 };
+// $search=$_GET['search'];
     xmlhttp.open("GET","http://localhost/serch/search2.php?id=" + $search, true);
 
 	 xmlhttp.send();
@@ -109,6 +143,12 @@ tr:hover {background-color: #D6EEEE;}
 	// 		{'name': 'peter', 'age': 35}
 	// 		];
 	// console.log(JSON.stringify(list1));
+
+	
 </script>
 	</tbody>
+	<section class="w3-container w3-center w3-content" style="max-width:600px">
+    <h2 class="w3-wide">Dhuway Daw</h2>
+    <p class="w3-opacity">Make Your LIfe easy</p>
+  </section>
 </html>
