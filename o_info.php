@@ -13,6 +13,7 @@ if($result = $conn->query($sql)){
     .second{
         padding:10px;
     }
+    
     /* table, th, td {
   border: 1px solid rgb(5,44,56);
 padding:20px;
@@ -46,6 +47,12 @@ table:hover:{
     margin-left: 80%;
     color:black;
 }
+.third{
+    margin-left:43%;
+    background-color: gray;
+    margin-right:40%;
+    padding:20px;
+}
 
 </style>
 <head>
@@ -59,6 +66,8 @@ table:hover:{
 "> <center>Order Details</center></h1> -->
 <h2>Welcome <span class="badge bg-primary"><?php echo"Shoppper"?></span></h2>
 <!-- <p> Today's Date : <?php echo "$date"?> Time : <?php echo "$time"?></p> -->
+
+
 <button style="font-weight: bolder;margin-left:85%;" ><a  href='search.php?search=" "'>Search</a></button>
 
 
@@ -153,10 +162,17 @@ if(($row['area']==$se1)){
 ?>
 </tbody>
 </table>
-<section class="w3-container w3-center w3-content" style="max-width:600px">
+<div class="third">
+
+
+    <h3 style="padding:1%;font-weight: bolder;">Delivery Man Details</h3>
+    <button style="margin-left:55px;font-weight: bolder;"><a  href='datasearch.php?search=" "'>Search</a></button>
+
+</div>
+<section style="padding-top:5%;"  class="w3-container w3-center w3-content" style="max-width:600px">
     <h2 class="w3-wide">Dhuway Daw</h2>
     <p class="w3-opacity">Make Your LIfe easy</p>
   </section>
-<button style="margin-left: 48%;margin-top: 20px;font-weight: bolder;"><a href="logout.php">Log Out</a></button>
+<button style="margin-left: 48%;margin-top: 20px;font-weight: bolder;"><a href="logout.php?logout='logout'">Log Out</a></button>
 
 

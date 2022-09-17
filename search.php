@@ -15,7 +15,8 @@
 
 <div class="first" >
     
-    <form class="get" action="">
+    <form class="get" action="search.php">
+		
       <input type="text" placeholder="Search.." name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
@@ -25,6 +26,7 @@
 
 
 <?php
+
 $search=$_GET['search'];
 // $search = date('Y-m-d', strtotime($_GET["search"]));
 
@@ -54,7 +56,7 @@ tr:nth-child(even) {
 input:hover
 {
     border: 2px solid red;
-    background-color: blue;
+    background-color: gray;
 	float: 2px;
 	cursor:pointer;
     margin-top: 5px;
@@ -74,6 +76,16 @@ tr:hover {background-color: #D6EEEE;}
 <table id="f1" border="2px solid gray">
 
     </table>
+	
+
+
+
+
+
+
+
+
+
 <script>
 // echo $search;
 
@@ -147,8 +159,14 @@ document.getElementById("f1").innerHTML = "";
 	
 </script>
 	</tbody>
+	
+	
 	<section class="w3-container w3-center w3-content" style="max-width:600px">
+		<a style="margin-top:1%;background-color:gray" href="./o_info.php">Go to Shopper page</a>
     <h2 class="w3-wide">Dhuway Daw</h2>
     <p class="w3-opacity">Make Your LIfe easy</p>
   </section>
 </html>
+
+
+
