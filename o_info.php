@@ -13,6 +13,22 @@ if($result = $conn->query($sql)){
     .second{
         padding:10px;
     }
+    .btns{
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 12px;
+        transition-duration: 0.4s;
+        background-color: #005EB8;
+        color: white;
+        border: 2px solid #005EB8; 
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    .btns:hover {
+  background-color: #87CEEB;
+  border: 2px solid #005EB8; 
+  
+  
+}
     
     /* table, th, td {
   border: 1px solid rgb(5,44,56);
@@ -53,6 +69,71 @@ table:hover:{
     margin-right:40%;
     padding:20px;
 }
+h3{
+        color : white;
+        font: 1em sans-serif,Arial;
+        margin-right: 30px ;
+    }
+    .weladm{
+      margin-top:10px;
+      margin-left: 220px;
+      
+    }
+    .btns{
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 12px;
+        transition-duration: 0.4s;
+        background-color: #005EB8;
+        color: white;
+        border: 2px solid #005EB8; 
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    .btns:hover {
+  background-color: #87CEEB;
+  border: 2px solid #005EB8; 
+  
+  
+}
+
+
+
+table {
+
+width: 100%;
+}
+
+th,tr, td {
+text-align: left;
+padding: 8px;
+}
+/* 
+tr:nth-child(even) {
+background-color: #D6EEEE;
+} */
+input{
+  border-radius:10px;
+  width:10%;
+}
+input:hover
+{
+  /* border: 2px solid red; */
+  /* background-color: blue; */
+float: 2px;
+cursor:pointer;
+  margin-top: 5px;
+
+}
+label{
+	color: #87CEEB;
+	margin: 20px 0px;
+	font-size: 24px;
+}
+h1{
+padding-left: 10%;
+color:#87CEEB;
+}
+tr:hover {background-color: #D6EEEE;}
 
 </style>
 <head>
@@ -68,7 +149,8 @@ table:hover:{
 <!-- <p> Today's Date : <?php echo "$date"?> Time : <?php echo "$time"?></p> -->
 
 
-<button style="font-weight: bolder;margin-left:85%;" ><a  href='search.php?search=" "'>Search</a></button>
+<!-- <button style="font-weight: bolder;margin-left:85%;" ><a  href='search.php?search=" "'>Search</a></button> -->
+<button style="margin-left:85%" type="submit" class="btns" name="btns" value="btns"><a  href='search.php?search=" "'>Search</a></button>
 
 
 
@@ -103,7 +185,7 @@ table:hover:{
 
         $progress=$row['o_progress'];
 if(($row['area']==$se1)){
-                if($progress="Done"){
+                // if($progress="Done"){
         $id=$row['o_id'];
         ?>
           
@@ -153,7 +235,7 @@ if(($row['area']==$se1)){
     <?php
 
 
-}
+// }
 
 }
 }
@@ -162,14 +244,56 @@ if(($row['area']==$se1)){
 ?>
 </tbody>
 </table>
-<div class="third">
+<form action="" method="get">
+<h1>Search Data</h1>
+  <label for="">Delivery Man Id:</label>
+  <input type="text" name="search" placeholder="Delivery Man ID">
+  <button type="submit" class="btns" name="btns" value="btns">Search</button>
+  </form>
+  <table class="table table-border">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Contact</th>
+      <!-- <th>Running Order</th> -->
+      
+      
+     
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    $conn = mysqli_connect('localhost','root','','dhuye_daw');
+    if($conn){
+      echo "Connection Successful.";
+    }
+    else{
+      echo"Connection error";
+    }
+    if(isset($_GET['btns'])) {
+	$id = $_GET["search"];
+       
+    $sql = "SELECT d_id,dm_name,dm_contact FROM delivery_man where $id=d_id ;";
+    $result = $conn->query($sql);
+
+   
+    if($result){
+      while($row = $result->fetch_assoc()){
+        echo "<tr><td>" .$row['d_id'] . "</td><td>".$row['dm_name'] . "</td><td>" .$row['dm_contact'] .  "</td></tr>";
+      }
+    }
+}
 
 
-    <h3 style="padding:1%;font-weight: bolder;">Delivery Man Details</h3>
-    <button style="margin-left:55px;font-weight: bolder;"><a  href='datasearch.php?search=" "'>Search</a></button>
 
-</div>
-<section style="padding-top:5%;"  class="w3-container w3-center w3-content" style="max-width:600px">
+ 
+      ?>
+   
+  </tbody>
+</table>
+
+ <section style="padding-top:5%;"  class="w3-container w3-center w3-content" style="max-width:600px">
     <h2 class="w3-wide">Dhuway Daw</h2>
     <p class="w3-opacity">Make Your LIfe easy</p>
   </section>

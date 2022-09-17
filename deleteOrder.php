@@ -52,6 +52,7 @@ $id = $_GET["id"];
 
 
 $f0 = $_GET["f0"];
+// echo $f0;
 $d_date=$_GET['d_date'];
         // $d_date = date('Y-m-d', strtotime($_GET["d_date"]));
 

@@ -6,6 +6,131 @@
 	.first{
 		margin-left:80%;
 	}
+	.second{
+        padding:10px;
+    }
+    .btns{
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 12px;
+        transition-duration: 0.4s;
+        background-color: #005EB8;
+        color: white;
+        border: 2px solid #005EB8; 
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    .btns:hover {
+  background-color: #87CEEB;
+  border: 2px solid #005EB8; 
+  
+  
+}
+    
+    /* table, th, td {
+  border: 1px solid rgb(5,44,56);
+padding:20px;
+
+
+} */
+ /* th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+} */
+/* tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+tr:hover {background-color: #D6EEEE;} */
+
+table:hover:{
+    background:#89A77A;
+}
+/* tr:nth-child(even){background-color: #f2f2f2;} */
+
+ tr:hover {background-color: #ddd;float: auto;}
+
+
+
+
+/* tr:hover {background-color: coral;} */
+.first{
+    margin-left: 40%;
+    color:black;
+}
+.third{
+    margin-left:43%;
+    background-color: gray;
+    margin-right:40%;
+    padding:20px;
+}
+h3{
+        color : white;
+        font: 1em sans-serif,Arial;
+        margin-right: 30px ;
+    }
+    .weladm{
+      margin-top:10px;
+      margin-left: 220px;
+      
+    }
+    .btns{
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 12px;
+        transition-duration: 0.4s;
+        background-color: #005EB8;
+        color: white;
+        border: 2px solid #005EB8; 
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    .btns:hover {
+  background-color: #87CEEB;
+  border: 2px solid #005EB8; 
+  
+  
+}
+
+
+
+table {
+
+width: 100%;
+}
+
+th,tr, td {
+text-align: left;
+padding: 8px;
+}
+/* 
+tr:nth-child(even) {
+background-color: #D6EEEE;
+} */
+input{
+  border-radius:10px;
+  width:10%;
+}
+input:hover
+{
+  /* border: 2px solid red; */
+  /* background-color: blue; */
+float: 2px;
+cursor:pointer;
+  margin-top: 5px;
+
+}
+label{
+	color: #87CEEB;
+	margin: 20px 0px;
+	font-size: 24px;
+}
+h1{
+padding-left: 10%;
+color:#87CEEB;
+}
+tr:hover {background-color: #D6EEEE;}
+
    </style>
 
 
@@ -13,14 +138,25 @@
 
 
 
-<div class="first" >
+<!-- <div class="first" >
     
     <form class="get" action="search.php">
 		
-      <input type="text" placeholder="Search.." name="search">
+      <input type="text" placeholder="Search.." name="search" placeholder="Delivery Man ID">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
-</div>
+</div> -->
+<div class="first">
+<form class="get" action="search.php">
+<!-- <h1>Search Data</h1> -->
+  <label for="">Order Id:</label>
+  <input type="text" name="search" placeholder="Order ID">
+  <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+  <button type="submit" class="btns" name="btns" value="btns">Search</button>
+
+  </form>
+  </div>
+  <!-- <button type="submit" class="btns" name="btns" value="btns">Search</button> -->
 
 
 
@@ -140,7 +276,7 @@ document.getElementById("f1").innerHTML = "";
 // 	 	}
 // 	 };
 // $search=$_GET['search'];
-    xmlhttp.open("GET","http://localhost/serch/search2.php?id=" + $search, true);
+xmlhttp.open("GET","http://localhost/serch/search2.php?id=" + $search, true);
 
 	 xmlhttp.send();
 
