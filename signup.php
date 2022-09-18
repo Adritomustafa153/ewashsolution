@@ -7,11 +7,19 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style3.css">
     
 </head>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box}
+       body{
+	
+	background-image: url("lun1.jpg");
+    height: auto;
+    width: auto;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -104,25 +112,42 @@ button:hover {
 }
 </style>
 <body>
-
+<div class="login-section">
+        <div class="form">
+          
 <form method="post" action="action_page.php" style="border:1px solid #ccc" >
   <div class="container">
     <h1>Sign Up</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
+    
+   
 
     <label for="email"><b>Email</b></label>
+<br>
+
     <input type="email" placeholder="Enter Email" name="email" required>
-
+<br>
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+<br>
 
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    <br>
+
+<br>
     <label for="psw-repeat"><b>Repeat Password</b></label>
+<br>
+
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+<br>
+
     <label for="S_name"><b>Shop Name:</b></label>
+<br>
+
     <input type="text" placeholder="Enter Shop" name="Shop" required>
+    <br>
 
     <label for="Contact"><b>Contact</b></label>
+<br>
+
     <input type="text" placeholder="Enter Contact" name="contact" required>
     <br>
     <label style="font-weight: bold;" for="location">Choose a Location</label>
@@ -166,12 +191,16 @@ button:hover {
     
     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p> -->
 
-    <div class="clearfix">
+   
+      <!-- <button   type="submit"    class="btns">Sign Up</button> -->
       <!-- <button  type="button" class="cancelbtn">Cancel</button> -->
-      <button type="submit"  class="signupbtn">Sign Up</button>
-    </div>
+  <button style="margin-top:50px;" type="submit" class="btns" name="btns" value="btns">Sign up</button>
+
+   
   </div>
 </form>
+</div>
+</div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> 

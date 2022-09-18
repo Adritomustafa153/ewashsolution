@@ -81,7 +81,7 @@ $d_date=$_GET['d_date'];
 <body>
     
 
-<h2>Welcome To <span class="badge bg-primary"><?php echo"Updated"?></span></h2>
+<h2 style="#87CEEB;">Welcome To <span class="badge bg-primary"><?php echo"Updated"?></span></h2>
 
 
 <div class="second">

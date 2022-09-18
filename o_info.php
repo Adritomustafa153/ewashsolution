@@ -226,7 +226,7 @@ if(($row['area']==$se1)){
         // $d_date = date('Y-m-d', strtotime($row["d_date"]));
         // $_SESSION["area"] =date;
         
-		echo "<td> <a href = 'deleteOrder.php?id=$id&f0=$progress&d_date=$d_date'> Update </a> </td>";
+		echo "<td><button class='btns' name='btns'> <a href = 'deleteOrder.php?id=$id&f0=$progress&d_date=$d_date'> Update </a></button> </td>";
         ?>
         </tr>
 
