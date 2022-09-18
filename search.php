@@ -228,7 +228,7 @@ tr:hover {background-color: #D6EEEE;}
 document.getElementById("f1").innerHTML = "";  
 	// let n = prompt('please enter the id:');
 	let n='<?php echo $search?>'
-		fetch('http://localhost/Dhuyedaw/Dhuyedaw/Shopper/search2.php?search=' + n)
+		fetch('http://localhost/Ewashsolution/shop/search2.php?search=' + n)
 		.then(response => response.json())
 		.then(myObj => {
 			 //document.getElementById("content").innerHTML = JSON.stringify(myObj);
