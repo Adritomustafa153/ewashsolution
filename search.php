@@ -205,7 +205,7 @@ tr:hover {background-color: #D6EEEE;}
 </style>
 </head>
 <tbody>
-<h2 style="margin-left:20px;margin-buttom:20px;">Search <span class="badge bg-primary"><?php echo"Data"?></span></h2>
+<h2 style="margin-left:20px;margin-buttom:20px;color:#87CEEB;">Search <span class="badge bg-primary"><?php echo"Data"?></span></h2>
 <!-- <p> Today's Date : <?php echo "$date"?> Time : <?php echo "$time"?></p> -->
 <p id="content">please wait, loading data...</p>
 <h2 id="f0"></h2>
@@ -298,7 +298,7 @@ xmlhttp.open("GET","http://localhost/serch/search2.php?id=" + $search, true);
 	
 	
 	<section class="w3-container w3-center w3-content" style="max-width:600px">
-		<a style="margin-top:1%;background-color:gray" href="./o_info.php">Go to Shopper page</a>
+  <button style="margin-top:50px;" type="submit" class="btns" name="btns" value="btns"><a  href="./o_info.php">Go to Shopper page</a></button>
     <h2 class="w3-wide">Dhuway Daw</h2>
     <p class="w3-opacity">Make Your LIfe easy</p>
   </section>

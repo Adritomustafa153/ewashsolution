@@ -4,7 +4,22 @@
     
 
 <style>
-
+    .btns{
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 12px;
+        transition-duration: 0.4s;
+        background-color: #005EB8;
+        color: white;
+        border: 2px solid #005EB8; 
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    .btns:hover {
+  background-color: #87CEEB;
+  border: 2px solid #005EB8; 
+  
+  
+}
 body{
     background-image: url("afw1.jpg");
     background-repeat: no-repeat;
@@ -84,8 +99,9 @@ $d_date=$_GET['d_date'];
         <h3>Order date:</h3> <input type=date name=d_date value='<?php echo $d_date; ?>'>
         
         
-        <input style="color:black;margin-left:41%;margin-top:10px;width:20%; background-color:rgb(137, 156, 142);"  class="third" type=submit value=Update link="o_info.php">
-        
+        <input style="color:black;margin-left:41%;margin-top:10px;width:20%;"  class="btns" type=submit name="btns" value=Update link="o_info.php">
+
+       
         </form>
       
 </body>

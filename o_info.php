@@ -134,7 +134,14 @@ padding-left: 10%;
 color:#87CEEB;
 }
 tr:hover {background-color: #D6EEEE;}
-
+input:hover
+{
+    border: 2px solid red;
+    background-color: gray;
+	float: 2px;
+	cursor:pointer;
+    margin-top: 5px;
+}
 </style>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -145,7 +152,7 @@ tr:hover {background-color: #D6EEEE;}
 
 <!-- <h1 style="font-weight: bold;  color: blue;
 "> <center>Order Details</center></h1> -->
-<h2>Welcome <span class="badge bg-primary"><?php echo"Shoppper"?></span></h2>
+<h2 style="color:#87CEEB;">Welcome <span class="badge bg-primary"><?php echo"Shoppper"?></span></h2>
 <!-- <p> Today's Date : <?php echo "$date"?> Time : <?php echo "$time"?></p> -->
 
 
@@ -245,8 +252,8 @@ if(($row['area']==$se1)){
 </tbody>
 </table>
 <form action="" method="get">
-<h1>Search Data</h1>
-  <label for="">Delivery Man Id:</label>
+<!-- <h1>Search Data</h1> -->
+  <label style="margin-left:32%;" for="">Delivery Man Id:</label>
   <input type="text" name="search" placeholder="Delivery Man ID">
   <button type="submit" class="btns" name="btns" value="btns">Search</button>
   </form>
@@ -297,6 +304,6 @@ if(($row['area']==$se1)){
     <h2 class="w3-wide">Dhuway Daw</h2>
     <p class="w3-opacity">Make Your LIfe easy</p>
   </section>
-<button style="margin-left: 48%;margin-top: 20px;font-weight: bolder;"><a href="logout.php?logout='logout'">Log Out</a></button>
+  <button style="margin-left:46%;" type="submit" class="btns" name="btns" value="btns"><a href="logout.php?logout='logout'">Log Out</a></button>
 
 
